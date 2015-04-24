@@ -1,0 +1,130 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/jquery-1.11.2.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="js/svg.js"></script>
+
+        <script>
+
+            function makeNewPosition() {      
+                // Get viewport dimensions (remove the dimension of the div)
+                var h = $(window).height() - 50;
+                var w = $(window).width() - 50;
+                
+                var nh = Math.floor(Math.random() * h);
+                var nw = Math.floor(Math.random() * w);
+                
+                return [nh,nw];       
+            }
+
+            function calcSpeed(prev, next) {
+                var x = Math.abs(prev[1] - next[1]);
+                var y = Math.abs(prev[0] - next[0]);
+                
+                var greatest = x > y ? x : y;
+                
+                var speedModifier = 0.1;
+
+                var speed = Math.ceil(greatest/speedModifier);
+
+                return speed;
+            }
+
+            // From here: http://stackoverflow.com/questions/10385950/how-to-get-a-div-to-randomly-move-around-a-page-using-jquery-or-css
+            function animateDiv() {
+                var newq = makeNewPosition();
+                var oldq = $('#pacman').offset();
+                var speed = calcSpeed([oldq.top, oldq.left], newq);
+                
+                $('#pacman').animate({ top: newq[0], left: newq[1] }, speed, function(){
+                  animateDiv();        
+                });  
+            };
+
+            // From here: http://stackoverflow.com/questions/4230029/jquery-javascript-collision-detection
+            var originatingOffset = null;
+            CONFIG_COLLISSION_PREVENTION_DROPPABLE = {
+                tolerance: "touch",
+                activate : function (event, ui) {
+                    // note the initial position/offset when drag starts
+                    // will be usedful in drop handler to check if the move
+                    // occurred and in cae overlap occurred, restore the original positions.
+                    originatingOffset = ui.offset;
+                },
+                drop : function (event, ui) {
+                        // If this callback gets invoked, the overlap has occurred. 
+                        // Use this method to either generate a custom event etc.
+
+                        // Here, i used it to nullify the move and resetting the dragged element's 
+                        // position back to it's original position/offset
+                        // (which was captured in the 'activate' handler)
+                    console.log("working");
+                    alert("blah blah");
+                    // $(ui.draggable).animate({
+                    //     top: originatingOffset.top + "px",
+                    //     left: originatingOffset.left + "px"
+                    // }, 300);
+                 }
+            }
+
+            rooms = null;
+            pacman = document.getElementById("pacman");
+            $(window).load(function () {
+                //alert("Document loaded, including graphics and embedded documents (like SVG)");
+
+                var a = document.getElementById("iss-svg");
+                var svgDoc = a.contentDocument; //get the inner DOM of alpha.svg
+
+                var iss = svgDoc.getElementById("iss_floorplan"); //get the inner element by id
+                iss.addEventListener("mouseover",function(){
+                    rooms.setAttribute("stroke", "none");
+                },false);
+
+                var rooms = svgDoc.getElementById("rooms"); //get the inner element by id
+                rooms.addEventListener("mouseover",function(){
+                    rooms.setAttribute("stroke", "red");
+                    rooms.setAttribute("stroke-width", "4");
+                },false);
+
+                animateDiv();
+
+                $("#pacman").droppable(CONFIG_COLLISSION_PREVENTION_DROPPABLE);
+                $("#rooms").droppable(CONFIG_COLLISSION_PREVENTION_DROPPABLE);
+            });
+        </script>
+
+        <style>
+            #pacman {
+                position: absolute;
+            }
+        </style>
+
+    </head>
+    <body>
+
+        <div id="pacman">
+            <img src="pacman-basic.png" width="30px" height="30px" />
+        </div>
+
+        <object id="iss-svg" data="iss_floorplan-centered-withids.svg" type="image/svg+xml">
+        </object>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
