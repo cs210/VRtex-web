@@ -14,7 +14,9 @@
         <script src="js/jquery-1.11.2.min.js"></script>
         <script src="js/jquery-ui.min.js"></script>
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="js/vendor/osc-browser.min.js"></script>
         <script src="js/svg.js"></script>
+        <script src="http://127.0.0.1:8082/socket.io/socket.io.js"></script>
 
         <script>
 
@@ -82,6 +84,7 @@
             rooms = null;
             pacman = document.getElementById("pacman");
             $(window).load(function () {
+                return;
                 //alert("Document loaded, including graphics and embedded documents (like SVG)");
 
                 var a = document.getElementById("iss-svg");
@@ -121,7 +124,6 @@
         <object id="iss-svg" data="iss_floorplan-centered-withids.svg" type="image/svg+xml">
         </object>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
         <script src="js/plugins.js"></script>
