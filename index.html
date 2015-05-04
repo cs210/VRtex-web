@@ -107,22 +107,25 @@
                 $("#rooms").droppable(CONFIG_COLLISSION_PREVENTION_DROPPABLE);
             });
         </script>
-
-        <style>
-            #pacman {
-                position: absolute;
-            }
-        </style>
-
     </head>
     <body>
 
-        <div id="pacman">
-            <img src="pacman-basic.png" width="30px" height="30px" />
+
+        <div id="iss-container">
+          <div id="position-indicator" class="indicator"></div>
+          <object id="iss-svg" data="iss_floorplan-centered-withids.svg" type="image/svg+xml">
+          </object>
         </div>
 
-        <object id="iss-svg" data="iss_floorplan-centered-withids.svg" type="image/svg+xml">
-        </object>
+        <div id="direction-container">
+          <div id="direction-indicator" class="indicator"></div>
+          <object id="crosshair-svg" data="crosshair.svg" type="image/svg+xml">
+          </object>
+        </div>
+
+        <div id="thrust-container">
+          <div id="thrust-meter"></div>
+        </div>
 
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 

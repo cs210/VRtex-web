@@ -24,6 +24,12 @@ socket.on('message', function(message) {
   case "/position":
     updatePosition.apply(this, args)
     break;
+  case "/direction":
+    updateDirection.apply(this, args)
+    break;
+  case "/thrust":
+    updateThrust.apply(this, args)
+    break;
   case "/log":
     console.log("Log:", args);
   default:
@@ -34,8 +40,33 @@ socket.on('message', function(message) {
 var updatePosition = function (x, y) {
   console.log("updatePosition", x, y);
   var newq = [x, y];
-  var oldq = $('#pacman').offset();
-  var speed = calcSpeed([oldq.top, oldq.left], newq);
-  $('#pacman').animate({ top: newq[0], left: newq[1] }, speed, function() {
-  });  
+  var oldq = $('#position-indicator').offset();
+  $('#position-indicator').animate({ top: newq[0], left: newq[1] });
+};
+
+var updateDirection = function (pitch, roll) {
+  var scale = 125;
+  var newX, newY;
+  console.log("updateDirection", pitch, roll);
+
+  if (pitch > 0 && false) {
+    newY = (1-pitch) * scale;
+  } else {
+    newY = scale + (-1 * pitch * scale);
+  }
+
+  if (roll > 0 && false) {
+    newX = (1-roll) * scale;
+  } else {
+    newX = scale + (roll * scale);
+  }
+
+  // Subtract half the width/height of the indicator
+  var newq = [newY + 4, newX - 4];
+  var oldq = $('#direction-indicator').offset();
+  $('#direction-indicator').animate({ top: newq[0], left: newq[1] });
+};
+
+var updateThrust = function (percent) {
+  $("#thrust-meter").width(percent + "%");
 };

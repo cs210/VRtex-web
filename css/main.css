@@ -196,3 +196,21 @@ textarea {
         page-break-after: avoid;
     }
 }
+
+.indicator {
+  position: relative;
+  background-color: blue;
+  width: 8px;
+  height: 8px;
+}
+
+#thrust-container {
+  height: 50px;
+  border: 1px solid red;
+}
+
+#thrust-meter {
+  width: 1%;
+  height: 100%;
+  background-color: red;
+}
