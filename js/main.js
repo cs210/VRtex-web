@@ -48,6 +48,7 @@ var updatePosition = function (x, y) {
   $('#position-indicator').css({ top: newq[0], left: newq[1] });
 };
 
+var INDICATOR_DIAMETER = $("#direction-indicator").height();
 var updateDirection = function (pitch, yaw, roll) {
   var scale = 125;
   var newX, newY;
@@ -68,7 +69,7 @@ var updateDirection = function (pitch, yaw, roll) {
   }
 
   // Subtract half the width/height of the indicator
-  var newq = [newY + 4, newX - 4];
+  var newq = [newY + INDICATOR_DIAMETER, newX - INDICATOR_DIAMETER / 2];
   var oldq = $('#direction-indicator').offset();
   $('#direction-indicator').css({ top: newq[0], left: newq[1] });
 };
