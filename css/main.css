@@ -204,6 +204,10 @@ textarea {
   height: 8px;
 }
 
+#iss-container {
+  max-width: 800px;
+}
+
 #thrust-container {
   height: 50px;
   border: 1px solid red;
