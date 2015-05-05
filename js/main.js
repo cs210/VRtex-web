@@ -32,8 +32,11 @@ socket.on('message', function(message) {
     break;
   case "/log":
     console.log("Log:", args);
-    updateDirection.apply(this, [args[0], args[1], args[2]])
-    updateThrust.apply(this, [args[3]])
+    break;
+  case "/update":
+    updateDirection.apply(this, args.slice(0, 3))
+    updateThrust.apply(this, args.slice(3, 4))
+    updatePosition.apply(this, args.slice(4, 7))
     break;
   default:
     console.error("Invalid OSC address", message);
@@ -41,9 +44,9 @@ socket.on('message', function(message) {
   }
 });
 
-var updatePosition = function (x, y) {
-  // console.log("updatePosition", x, y);
-  var newq = [x, y];
+var updatePosition = function (x, y, z) {
+  console.log("updatePosition", x, y, z);
+  var newq = [z - 1000, x/3.5];
   var oldq = $('#position-indicator').offset();
   $('#position-indicator').css({ top: newq[0], left: newq[1] });
 };
