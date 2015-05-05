@@ -18,7 +18,7 @@ socket.on('connect', function() {
 });
 
 socket.on('message', function(message) {
-  var addr = message[0];
+  var addr = message[0].substr(4);
   var args = message.splice(1);
   switch (addr) {
   case "/position":
@@ -32,22 +32,28 @@ socket.on('message', function(message) {
     break;
   case "/log":
     console.log("Log:", args);
+    updateDirection.apply(this, [args[0], args[1], args[2]])
+    updateThrust.apply(this, [args[3]])
+    break;
   default:
     console.error("Invalid OSC address", message);
+    break;
   }
 });
 
 var updatePosition = function (x, y) {
-  console.log("updatePosition", x, y);
+  // console.log("updatePosition", x, y);
   var newq = [x, y];
   var oldq = $('#position-indicator').offset();
-  $('#position-indicator').animate({ top: newq[0], left: newq[1] });
+  $('#position-indicator').css({ top: newq[0], left: newq[1] });
 };
 
-var updateDirection = function (pitch, roll) {
+var updateDirection = function (pitch, yaw, roll) {
   var scale = 125;
   var newX, newY;
-  console.log("updateDirection", pitch, roll);
+  console.log("updateDirection", pitch, yaw, roll);
+  pitch = pitch / 22;
+  yaw = yaw / 22;
 
   if (pitch > 0 && false) {
     newY = (1-pitch) * scale;
@@ -55,18 +61,20 @@ var updateDirection = function (pitch, roll) {
     newY = scale + (-1 * pitch * scale);
   }
 
-  if (roll > 0 && false) {
-    newX = (1-roll) * scale;
+  if (yaw > 0 && false) {
+    newX = (1-yaw) * scale;
   } else {
-    newX = scale + (roll * scale);
+    newX = scale + (yaw * scale);
   }
 
   // Subtract half the width/height of the indicator
   var newq = [newY + 4, newX - 4];
   var oldq = $('#direction-indicator').offset();
-  $('#direction-indicator').animate({ top: newq[0], left: newq[1] });
+  $('#direction-indicator').css({ top: newq[0], left: newq[1] });
 };
 
 var updateThrust = function (percent) {
+  percent = percent / 8;
+  console.log("updateThrust", percent);
   $("#thrust-meter").width(percent + "%");
 };
