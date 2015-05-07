@@ -45,6 +45,7 @@ socket.on('message', function(message) {
 });
 
 var updatePosition = function (x, y, z) {
+  return;
   console.log("updatePosition", x, y, z);
   var newq = [z - 1000, x/3.5];
   var oldq = $('#position-indicator').offset();
