@@ -116,6 +116,7 @@ textarea {
 /* Custom Syles */
 
 .indicator {
+  z-index: 100;
   position: relative;
   background-color: red;
   border-radius:15px;
