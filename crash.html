@@ -191,11 +191,14 @@
             callback: function() {
                 $("#shell").addClass('hideAfter');
                 $("#countdown").typed({
-                    strings: ['10','9','8','7','6','5','4','3','2','1'],
+                    strings: ['10','9','8','7','6','5','4','3','2','1^1000'],
                     contentType: 'html',
                     backDelay: 1000,
                     showCursor: false,
-                    typeSpeed: 0
+                    typeSpeed: 0,
+                    callback: function() {
+                        window.location.replace("index.html");
+                    }
                 });
             }
           });
