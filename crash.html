@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en" id="crash">
+<head>
+	<meta charset="UTF-8">
+	<title>Crash</title>
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/typed.js"></script>
+    <style>
+/*
+        .typed-cursor{
+            opacity: 1;
+            -webkit-animation: blink 0.7s infinite;
+            -moz-animation: blink 0.7s infinite;
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-webkit-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-moz-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+*/      
+        @keyframes blink {
+          to {
+            background-color: black;
+          }
+        }
+        @-moz-keyframes blink {
+          to {
+            background-color: black;
+          }
+        }
+        @-webkit-keyframes blink {
+          to {
+            background-color: black;
+          }
+        }
+        @keyframes skip {
+          to {
+            background-position: 0 100%;
+          }
+        }
+        @-moz-keyframes skip {
+          to {
+            background-position: 0 100%;
+          }
+        }
+        @-webkit-keyframes skip {
+          to {
+            background-position: 0 100%;
+          }
+        }
+        @keyframes flicker {
+          to {
+            color: white;
+          }
+        }
+        @-moz-keyframes flicker {
+          to {
+            color: white;
+          }
+        }
+        @-webkit-keyframes flicker {
+          to {
+            color: white;
+          }
+        }
+        @-moz-keyframes ready {
+          to {
+            visibility: hidden;
+          }
+        }
+        @-webkit-keyframes ready {
+          to {
+            visibility: hidden;
+          }
+        }
+        @keyframes ready {
+          to {
+            visibility: hidden;
+          }
+        }
+        @font-face {
+            font-family: PerfectDOS;
+            src: local("Perfect DOS VGA 437"),
+                 url('fonts/Perfect-DOS-VGA-437.ttf');
+        }
+        #crash, #crash body {
+            display: table;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #crash body {
+            position: relative;
+            background-color: #151515;
+            background-image: url('img/404-stripe.png'), url('img/404-noise.png');
+            background-repeat: repeat-x, repeat;
+            background-position: 0 0%;
+            background-attachment: fixed;
+            font-size: 36px;
+            font-family: PerfectDOS;
+            font-smooth: never;
+            line-height: 2em;
+            color: white;
+            -webkit-font-smoothing: none;
+/*            text-shadow: -2px 0 0px rgba(0, 0, 225, 0.4), -1px 0 3px rgba(103, 171, 236, 0.6), 1px 0 4px rgba(69, 112, 204, 0.5);*/
+            -moz-animation: blink 0.1s steps(2, start) infinite, skip 7s linear infinite, flicker 0.1s steps(2, start) infinite;
+            -webkit-animation: blink 0.1s steps(2, start) infinite, skip 7s linear infinite, flicker 0.1s steps(2, start) infinite;
+            animation: blink 0.1s steps(2, start) infinite, skip 7s linear infinite, flicker 0.1s steps(2, start) infinite;
+            
+        }
+        #crash body #content {
+            display: table-cell;
+            vertical-align: top;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        #crash body #shell {
+            margin: 0 auto;
+            padding: 50px;
+            max-width: 100%;
+            display: block;
+            white-space: pre;
+            line-height: 1.5em;
+        }
+        #crash body #shell:after {
+            visibility: visible;
+            content: '';
+            background-color: white;
+            display: inline-block;
+            position: relative;
+            width: 0.5em;
+            height: 1em;
+            top: 5px;
+            margin-left: 0;
+/*
+            -moz-box-shadow: -2px 0 0px rgba(0, 0, 225, 0.4), -1px 0 3px rgba(103, 171, 236, 0.6), 1px 0 4px rgba(69, 112, 204, 0.5);
+            -webkit-box-shadow: -2px 0 0px rgba(0, 0, 225, 0.4), -1px 0 3px rgba(103, 171, 236, 0.6), 1px 0 4px rgba(69, 112, 204, 0.5);
+            box-shadow: -2px 0 0px rgba(0, 0, 225, 0.4), -1px 0 3px rgba(103, 171, 236, 0.6), 1px 0 4px rgba(69, 112, 204, 0.5);
+*/
+            -moz-animation: flicker 0.1s steps(2, start) infinite, ready 1s steps(2, start) 3s infinite;
+            -webkit-animation: flicker 0.1s steps(2, start) infinite, ready 1s steps(2, start) 3s infinite;
+            animation: flicker 0.1s steps(2, start) infinite, ready 1s steps(2, start) 2s infinite;
+        }
+        #crash body .typed-cursor {
+            display: none;
+        }
+        #crash body #shell .red {
+            color: red;
+        }
+        #crash body #shell .green {
+            color: lawngreen;
+        }
+        #crash body #shell .yellow {
+            color: yellow;
+        }
+        #crash body #shell.hideAfter:after {
+            visibility: hidden;
+        }
+        #crash body #content #logo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+        }
+        #crash body #content #logo.withGradient {
+            background-image: linear-gradient(transparent, white);
+        }
+    </style>
+    <script>
+      $(function(){
+          $("#shell").typed({
+            strings: ['<span class="red">CRITICAL ERROR ^2000</span>',
+                      'SYSTEM MALFUNCTION ^1000\nERROR CODE: 0x0b3dca ^2000\n  <span class="red">MAIN CAMERA FEED OFFLINE</span> ^1000\n  Running diagnostics.^300.^300.^300.^300.\n\tCAMERA ONE STATUS: ^1000 <span class="red">FAILURE</span> ^1000\n\tBACKUP CAMERA SYSTEM: ^1000 <span class="red">DISCONNECTED</span> ^1000\n\tOVER-THE-AIR COMMUNICATIONS: ^4000 <span class="green">OPERATIONAL</span> ^3000\n\n\nAttempting reboot into <span class="yellow">GRAVITEAM HUD</span> in <span id="countdown"> </span>'
+                     ],
+            contentType: 'html',
+            typeSpeed: 0,
+            callback: function() {
+                $("#shell").addClass('hideAfter');
+                $("#countdown").typed({
+                    strings: ['10','9','8','7','6','5','4','3','2','1'],
+                    contentType: 'html',
+                    backDelay: 1000,
+                    showCursor: false,
+                    typeSpeed: 0
+                });
+            }
+          });
+      });
+    </script>
+</head>
+<body>
+    <div id="content">
+        <span id="shell"></span>
+        <img id="logo" src="img/rocket-inverted-transparent.svg"/>
+    </div>
+</body>
+</html>
