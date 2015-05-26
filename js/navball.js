@@ -9,7 +9,6 @@ $(function(){
   var windowHalfY = window.innerHeight / 2;
 
   var cx = 350, cy = 0;
-  var sphere;
   init();
   animate();
 
@@ -42,8 +41,8 @@ $(function(){
     MLoader.load('navballtex.png', function(mat){
       console.log("mat");
       var navmat = new THREE.MeshBasicMaterial({map: mat});
-      sphere = new THREE.Mesh(new THREE.SphereGeometry(100,52, 32), navmat);
-      scene.add(sphere);
+      window.sphere = new THREE.Mesh(new THREE.SphereGeometry(100,52, 32), navmat);
+      scene.add(window.sphere);
       render();
     });
 
@@ -123,12 +122,7 @@ $(function(){
   }
 
   var radius = 200;
-  var t = 0;
   function render() {
-    t += 0.04;
-    if(sphere){
-      sphere.rotation.x = t;
-    }
     camera.lookAt( scene.position );
     renderer.render( scene, camera );
 

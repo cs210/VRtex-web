@@ -48,7 +48,6 @@ var updatePosition = function (a, b, c) {
   window.player.position.x = (a - 3550)/3;
   window.player.position.y = (c + 110)/3;
   window.player.position.z = (b - 430)/3;
-  console.log(player.position);
 //  return;
 //  console.log("updatePosition", x, y, z);
 //  var newq = [z - 1000, x/3.5];
@@ -58,6 +57,10 @@ var updatePosition = function (a, b, c) {
 
 var INDICATOR_DIAMETER = $("#direction-indicator").height();
 var updateDirection = function (pitch, yaw, roll) {
+  window.sphere.rotation.x = pitch/360;
+  window.sphere.rotation.y = yaw/360;
+  window.sphere.rotation.z = roll/360;
+
 //  var scale = 125;
 //  var newX, newY;
 //  console.log("updateDirection", pitch, yaw, roll);

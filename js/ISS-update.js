@@ -19,7 +19,6 @@ $(function(){
     camera = new THREE.PerspectiveCamera( 45, container.clientWidth / 600, 1, 16000 );
     camera.position.z = 100;
 
-    window.player = new THREE.Mesh(new THREE.SphereGeometry(40, 10, 10), new THREE.MeshBasicMaterial({color: 0xee0000}));
     // scene
     scene = new THREE.Scene();
 
@@ -51,9 +50,13 @@ $(function(){
 //      var mesh = new THREE.Mesh( geometry, new THREE.MeshFaceMaterial( materials ));
       var mesh = new THREE.Mesh( geometry, material);
       scene.add(mesh);
-      scene.add(player);
-      player.position = geometry.center();
-      render();
+      jsonLoader.load("js/shuttle.js", function(geom, mat){
+         window.player = new THREE.Mesh(geom, new THREE.MeshBasicMaterial({color: 0xee0000}));
+         window.player.scale = 0.6
+         scene.add(window.player);
+         window.player.position = geometry.center();
+         render();
+      });
     }
 
     controls = new THREE.TrackballControls( camera );
@@ -120,13 +123,11 @@ $(function(){
   var radius = 3600;
   var t = 0;
   function render() {
-
     camera.position.x = scene.position.x + radius * Math.cos(t);
     camera.position.z = scene.position.z + radius * Math.sin(t);
     t += 0.007;
     camera.lookAt( scene.position );
     renderer.render( scene, camera );
-
   }
 
 });

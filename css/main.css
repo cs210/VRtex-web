@@ -156,12 +156,13 @@ textarea {
 
 .shadow-separator {
   height: 20px;
+margin-top: -30px;
   overflow: hidden;
   width: 100%;
 }
 .shadow-separator:after {
   border-radius: 100%;
-  box-shadow: 0 0 10px #333333;
+  box-shadow: 0 0 10px #ececec;
   content: "";
   display: block;
   height: 100%;
@@ -228,7 +229,7 @@ body {
   font-weight: 100;
   font-size: 14px;
   width: 100%;
-  margin: 5em auto;
+  margin: 0 auto 52px auto;
   color: #0ff;
 }
 .control-panel-monitor,
@@ -281,9 +282,9 @@ body {
   animation: glitch-2 100ms infinite linear alternate;
 }
 .control-panel-controls {
-  -webkit-transform: rotateX(30deg) translateZ(50px);
-  -ms-transform: rotateX(30deg) translateZ(50px);
-  transform: rotateX(30deg) translateZ(50px);
+  -webkit-transform: rotateX(-20deg) translateZ(50px);
+  -ms-transform: rotateX(-20deg) translateZ(50px);
+  transform: rotateX(-20deg) translateZ(50px);
 }
 .control-panel-controls:before {
   clip: rect(29px, 400px, 6px, 0);
@@ -675,3 +676,11 @@ body {
 #crosshair-svg {
   -webkit-filter: invert(1) drop-shadow(0px 0px 10px mediumaquamarine); ;
 }
+
+#mission-control-message {
+   height: 70px;
+   margin-top: 18px;
+   margin-bottom: -47px;
+   color: aqua;
+}
+
