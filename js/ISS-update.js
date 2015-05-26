@@ -59,23 +59,6 @@ $(function(){
       });
     }
 
-    controls = new THREE.TrackballControls( camera );
-    controls.rotateSpeed = 1.0;
-    controls.zoomSpeed = 1.2;
-    controls.panSpeed = 0.8;
-
-    controls.noZoom = false;
-    controls.noPan = false;
-
-    controls.staticMoving = true;
-    controls.dynamicDampingFactor = 0.3;
-
-    controls.keys = [ 65, 83, 68 ];
-    //        controls.target.lookAt( scene.position )
-
-
-    controls.addEventListener( 'change', render );
-
 
     renderer = new THREE.WebGLRenderer({alpha: true, antialias: false, precision: "lowp"});
     renderer.setClearColor( 0xffffff, 0);
