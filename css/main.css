@@ -669,12 +669,12 @@ body {
 }
 
 #iss-svg {
-  -webkit-filter: brightness(41%) sepia(90%) hue-rotate(-9deg) invert(1) drop-shadow(0px 0px 10px mediumaquamarine);;
+  -webkit-filter: brightness(41%) sepia(90%) hue-rotate(-9deg) invert(1) drop-shadow(0px 0px 10px mediumaquamarine);
 
 }
 
 #crosshair-svg {
-  -webkit-filter: invert(1) drop-shadow(0px 0px 10px mediumaquamarine); ;
+  -webkit-filter: invert(1) drop-shadow(0px 0px 10px mediumaquamarine);
 }
 
 #mission-control-message {
