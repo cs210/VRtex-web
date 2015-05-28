@@ -57,9 +57,12 @@ var updatePosition = function (a, b, c) {
 
 var INDICATOR_DIAMETER = $("#direction-indicator").height();
 var updateDirection = function (pitch, yaw, roll) {
-  window.sphere.rotation.x = pitch/360;
-  window.sphere.rotation.y = yaw/360;
-  window.sphere.rotation.z = roll/360;
+  console.log(pitch, yaw, roll);
+  window.sphere.rotation.x = pitch/180 * Math.PI;
+  window.sphere.rotation.z = yaw/180 * Math.PI;
+  window.sphere.rotation.y = roll/180 *Math.PI;
+
+  window.player.rotation = window.sphere.rotation;
 
 //  var scale = 125;
 //  var newX, newY;
