@@ -38,6 +38,12 @@ socket.on('message', function(message) {
     updateThrust.apply(this, args.slice(3, 4))
     updatePosition.apply(this, args.slice(4, 7))
     break;
+case "/health":
+    console.log(args);
+case "/astro":
+    
+    console.log(args);
+    break;
   default:
     console.error("Invalid OSC address", message);
     break;
@@ -91,5 +97,12 @@ var updateDirection = function (yaw, pitch, roll) {
 var updateThrust = function (percent) {
   percent = percent / 8;
   console.log("updateThrust", percent);
-  $("#thrust-meter").width(percent + "%");
+  $("#thrust-meter").width(percent + 50 + "%");
+  if(Math.abs(percent) < 5){
+    $("#thrust-meter").css("background-color", "white");
+  }else if(percent > 0){
+    $("#thrust-meter").css("background-color", "aquamarine");
+  }else{
+    $("#thrust-meter").css("background-color", "red");
+  }
 };

@@ -137,8 +137,6 @@ textarea {
 #thrust-meter {
   width: 1%;
   height: 100%;
-  background-color: aquamarine;
-
 }
 
 #direction-box {
@@ -663,7 +661,7 @@ body {
 }
 
 #speed-meter-outer {
-    -webkit-transform: rotate3d(0, 1, 0, 3deg);
+  -webkit-transform: rotate3d(0, 1, 0, 3deg);
   -ms-transform: rotate3d(0, 1, 0, 3deg);
   transform: rotate3d(0, 1, 0, 3deg);
 }
