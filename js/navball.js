@@ -4,7 +4,7 @@ $(function(){
   var camera, scene, renderer, controls;
 
 
-  var cx = 350, cy = 0;
+  var cx = 0, cy = 0;
   init();
   animate();
 
@@ -52,6 +52,7 @@ $(function(){
 
     camera.position.x = cx;
     camera.position.y = cy;
+    camera.position.z = 350;
 
     //        document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 

@@ -52,8 +52,8 @@ $(function(){
          shuttleMat.opacity = 0.7;
          shuttleMat.transparent = true;
          window.player = new THREE.Mesh(geom, shuttleMat );
-         window.player.scale.x = player.scale.y = 0.3;
-         window.player.scale.z = 0.3
+         window.player.scale.x = player.scale.y = 0.2;
+         window.player.scale.z = 0.2
 
          window.player.rotateY(-Math.PI/2);
 

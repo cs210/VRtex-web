@@ -51,9 +51,9 @@ case "/astro":
 });
 
 var updatePosition = function (a, b, c) {
-  window.player.position.x = (a - 3550)/3;
-  window.player.position.y = (c + 110)/3;
-  window.player.position.z = (b - 430)/3;
+  window.player.position.x = (a - 3550)/3 - 40;
+  window.player.position.y = (c + 110)/3 - 290;
+  window.player.position.z = (b - 430)/3 + 180;
 //  return;
 //  console.log("updatePosition", x, y, z);
 //  var newq = [z - 1000, x/3.5];
@@ -64,8 +64,8 @@ var updatePosition = function (a, b, c) {
 var INDICATOR_DIAMETER = $("#direction-indicator").height();
 var updateDirection = function (yaw, pitch, roll) {
   console.log(pitch, yaw, roll);
-  window.sphere.rotation.x = roll/180 * Math.PI;
-  window.sphere.rotation.z = -1 * yaw/180 * Math.PI;
+  window.sphere.rotation.x = yaw/180 * Math.PI;
+  window.sphere.rotation.z = -1 * roll/180 * Math.PI;
   window.sphere.rotation.y = -1 * pitch/180 *Math.PI;
 
    var c = window.sphere.rotation;
