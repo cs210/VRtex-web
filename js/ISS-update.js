@@ -40,16 +40,23 @@ $(function(){
 
       $("#helix").hide("slow" ,function(){ $("#helix").remove(); } );
 
-                  var material = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true});
-                  material.opacity = 0.8;
-                  material.transparent = false;
+      var material = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true});
+      material.opacity = 0.2;
+      material.transparent = true;
 
 //      var mesh = new THREE.Mesh( geometry, new THREE.MeshFaceMaterial( materials ));
       var mesh = new THREE.Mesh( geometry, material);
       scene.add(mesh);
       jsonLoader.load("js/shuttle.js", function(geom, mat){
-         window.player = new THREE.Mesh(geom, new THREE.MeshBasicMaterial({color: 0xee0000}));
-         window.player.scale = 0.6
+         var shuttleMat = new THREE.MeshBasicMaterial({color: 0xee0000});
+         shuttleMat.opacity = 0.7;
+         shuttleMat.transparent = true;
+         window.player = new THREE.Mesh(geom, shuttleMat );
+         window.player.scale.x = player.scale.y = 0.3;
+         window.player.scale.z = 0.3
+
+         window.player.rotateY(-Math.PI/2);
+
          scene.add(window.player);
          window.player.position = geometry.center();
          render();
@@ -61,7 +68,7 @@ $(function(){
     renderer.setClearColor( 0xffffff, 0);
 
     renderer.setPixelRatio( window.devicePixelRatio );
-    renderer.setSize( container.clientWidth, 600 );
+    renderer.setSize( $(container).parent().width(), 550 );
     container.appendChild( renderer.domElement)
 
     camera.position.x = cx;
