@@ -729,8 +729,17 @@ body {
     float: right;
 }
 
-.astro-level div{
+.astro-level{
     width: 32px; 
     height: 32px;
     float: right;
+}
+
+#block{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: black;
+    width: 100%;
+    height: 100%;
 }

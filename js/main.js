@@ -36,6 +36,17 @@ socket.on('message', function(message) {
    var addr = message[0].substr(4);
    var args = message.splice(1);
    switch (addr) {
+       case "/begin":
+            $("#block").hide();
+            var timestamp = Date.now();
+            window.setInterval(function(){
+                var timeleft = 600 - (Math.abs(timestamp - Date.now()))/1000;
+               $("#countdown").text(Math.floor(timeleft/60) + ":" + Math.floor(timeleft%60)); 
+            },1000)
+           break;
+       case "/crash":
+           window.location = "http://localhost:5001/crash.html"
+           break;
       case "/position":
          updatePosition.apply(this, args)
          break;
