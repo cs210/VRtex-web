@@ -10,9 +10,9 @@
 
     <link rel="stylesheet" href="css/normalize.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/loader.css">
-    <link href="http://fonts.googleapis.com/css?family=Orbitron:400,500" rel="stylesheet" type="text/css">
+    <link href="css/googlefont.css" rel="stylesheet" type="text/css">
 
     <script src="js/jquery-1.11.2.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
@@ -38,7 +38,7 @@
         <div class="control-panel col-lg-6" id="map-container">
           <div class="control-panel-monitor">
             <div class="position-wrap">
-              <h4>ISS</h4>
+              <h4 class='pull-left'>ISS</h4><span class='pull-right'><img class="icon icons8-Record" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAArUlEQVRIie3UOw6DMAwGYO8o8VW4SbkhuQmR4rCSm+BE7O1AixhKSxIUMeSXPH/yQwaoqbltwig6T7JnwoEJB0+yD1Y8LgMW27RMOHnC57diwmmxTZuPGJyPkA0zOGdhTOj+IfvOkpB1J+eQT4VRdNGQJ6liIU9SRUNsUMdCbFDfFyo2umLHABB93i4JAdi+Ap9A+Jrv8KMzJnTZyD7vp6rYoF4vUqrkndTUFMkL4miyQcbeGHcAAAAASUVORK5CYII=" width="26" height="26"> Astronaut</span>
               <div id="iss-container">
                <div id="helix">
                  <div class="container">
@@ -101,7 +101,7 @@
             <div class="speed-meter-wrap">
               <h4>Speed</h4>
               <div id="thrust-container">
-                <div id="thrust-meter"></div>
+                <div id="thrust-meter">PARKED</div>
               </div>
             </div>
           </div>
@@ -125,7 +125,7 @@
     </div>
 
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r71/three.js"></script>
+    <script src="js/vendor/three.js"></script>
 
     <script type="text/javascript" src="js/ISS-update.js"></script>
     <script type="text/javascript" src="js/navball.js"></script>
