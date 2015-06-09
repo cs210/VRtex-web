@@ -63,8 +63,11 @@ $(function(){
          });
       }
 
+      var astromat = new THREE.MeshBasicMaterial({color: 0xeeee00})
+      astromat.opacity = 0.7;
+      astromat.transparent = true;
       window.addAstronaut = function(PX, PY, PZ){
-         var astro = new THREE.Mesh(new THREE.SphereGeometry(80, 4,5), new THREE.MeshBasicMaterial({color: 0xeeee00}));
+         var astro = new THREE.Mesh(new THREE.SphereGeometry(80, 4,5), astromat );
          astro.position.x = PX;
          astro.position.y = PY;
          astro.position.z = PZ;

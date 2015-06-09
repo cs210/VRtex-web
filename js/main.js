@@ -40,6 +40,20 @@ socket.on('message', function(message) {
          updateThrust.apply(this, args.slice(3, 4))
          updatePosition.apply(this, args.slice(4, 7))
          break;
+      case "/becomeShield":
+         $("#mode1 a")[0].removeClass("text-muted");
+         $("#mode1 a")[1].addClass("text-muted");
+         break;
+      case "/becomeBeam":
+         $("#mode1 a")[1].removeClass("text-muted");
+         $("#mode1 a")[0].addClass("text-muted");
+         break;
+      case "/becomeDrive":
+         $("#thrust-meter").text("");
+         break;
+      case "/becomePark":
+         $("#thrust-meter").text("PARKED");
+         break;
       case "/health":
          console.log(args);
       case "/astro":
