@@ -63,6 +63,15 @@ $(function(){
       });
     }
 
+      window.addAstronaut = function(PX, PY, PZ){
+         var astro = new THREE.Mesh(new THREE.SphereGeometry(80, 4,5), new THREE.MeshBasicMaterial({color: 0xeeee00}));
+         astro.position.x = PX;
+         astro.position.y = PY;
+         astro.position.z = PZ;
+         scene.add(astro);
+         return astro;
+      }
+
 
     renderer = new THREE.WebGLRenderer({alpha: true, antialias: false, precision: "lowp"});
     renderer.setClearColor( 0xffffff, 0);

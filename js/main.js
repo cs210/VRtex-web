@@ -17,6 +17,8 @@ socket.on('connect', function() {
     );
 });
 
+window.astros = {};
+
 socket.on('message', function(message) {
   var addr = message[0].substr(4);
   var args = message.splice(1);
@@ -41,8 +43,11 @@ socket.on('message', function(message) {
 case "/health":
     console.log(args);
 case "/astro":
-    
-    console.log(args);
+
+      var id = args[0];
+      var x = (args[1]  - 3500)/3;
+      var y = (args[2] + 110)/3;
+
     break;
   default:
     console.error("Invalid OSC address", message);
