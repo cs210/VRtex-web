@@ -55,7 +55,10 @@ socket.on('message', function(message) {
          $("#thrust-meter").text("PARKED");
          break;
       case "/health":
-
+          $("#health-level").empty();
+      for(var i = 0; i<args; i++){
+          $("#health-level").append("<div class='health-points'></div>");
+      }
          console.log(args);
       case "/astro":
          var id = args[0];

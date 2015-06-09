@@ -722,3 +722,9 @@ body {
    display: block;
    width: 32px; height: 32px;
 }
+.health-points {
+    background: url("../img/health.png");
+    width: 32px; 
+    height: 32px;
+    float: right;
+}
