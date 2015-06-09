@@ -74,6 +74,9 @@ $(function(){
          scene.add(astro);
          return astro;
       }
+      window.removeAstronaut = function(astroRef){
+         scene.remove(astroRef);
+      }
 
 
       renderer = new THREE.WebGLRenderer({alpha: true, antialias: false, precision: "lowp"});
