@@ -728,3 +728,9 @@ body {
     height: 32px;
     float: right;
 }
+
+.astro-level div{
+    width: 32px; 
+    height: 32px;
+    float: right;
+}

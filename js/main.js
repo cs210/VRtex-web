@@ -1,3 +1,16 @@
+var astro_saved = 0
+
+function update_astro(astro){
+    $("#astro-level").empty();
+    for(var i = 0; i<astro; i++){
+        console.log(i);
+     $("#astro-level").append("<i class='icons8-Astronaut-Filled'></i>");
+    }
+    for(var i = astro; i<4; i++){
+        console.log(i);
+     $("#astro-level").append("<i class='icons8-Astronaut'></i>");
+    }
+}
 socket = io.connect('http://127.0.0.1', { port: 8082, rememberTransport: false});
 socket.on('connect', function() {
    // sends to socket.io server the host/port of oscServer and oscClient
@@ -60,6 +73,13 @@ socket.on('message', function(message) {
           $("#health-level").append("<div class='health-points'></div>");
       }
          console.log(args);
+         break;
+      case "/lock":
+            $("#lock-status").text("Locked"); 
+            break;
+      case "/unlock":
+            $("#lock-status").text("Waiting for lock"); 
+          break;
       case "/astro":
          var id = args[0];
          var x = (args[1]  - 3500)/3 - 40;
@@ -68,6 +88,8 @@ socket.on('message', function(message) {
          window.astros[id] = window.addAstronaut(x, y, z); //add astronaut and return scene object reference.
          break;
       case "/removeAstro": //TBD
+        astro_saved++;
+          update_astro(astro_saved);
          var id = args[0];
          window.removeAstronaut(astros[id]);
          break;
