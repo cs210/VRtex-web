@@ -13,7 +13,7 @@ $(function(){
 
     container = document.getElementById( 'iss-container' );
 
-    camera = new THREE.PerspectiveCamera( 45, container.clientWidth / 600, 1, 16000 );
+    camera = new THREE.PerspectiveCamera( 45, $(container).parent().width() / 550, 1, 16000 );
     camera.position.z = 100;
 
     // scene
@@ -82,7 +82,6 @@ $(function(){
   //
 
   function animate() {
-
     requestAnimationFrame( animate );
     //controls.update();
     render();
@@ -93,7 +92,7 @@ $(function(){
   function render() {
     camera.position.x = scene.position.x + radius * Math.cos(t);
     camera.position.z = scene.position.z + radius * Math.sin(t);
-    t += 0.007;
+    t += 0.004;
     camera.lookAt( scene.position );
     renderer.render( scene, camera );
   }

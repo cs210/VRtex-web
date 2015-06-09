@@ -3,10 +3,6 @@ $(function(){
 
   var camera, scene, renderer, controls;
 
-  var mouseX = 0, mouseY = 0;
-
-  var windowHalfX = window.innerWidth / 2;
-  var windowHalfY = window.innerHeight / 2;
 
   var cx = 350, cy = 0;
   init();
@@ -17,7 +13,7 @@ $(function(){
 
     container = document.getElementById( 'direction-container' );
 
-    camera = new THREE.PerspectiveCamera( 45, container.clientWidth / 600, 1, 16000 );
+    camera = new THREE.PerspectiveCamera( 42, 1, 1, 16000 );
 
     // scene
     scene = new THREE.Scene();
