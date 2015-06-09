@@ -47,6 +47,9 @@ socket.on('message', function(message) {
        case "/crash":
            window.location = "http://localhost:5001/crash.html"
            break;
+       case "/msg":
+           $("#status").text(args)
+           break;
       case "/position":
          updatePosition.apply(this, args)
          break;
