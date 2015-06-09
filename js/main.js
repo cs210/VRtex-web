@@ -43,12 +43,11 @@ socket.on('message', function(message) {
       case "/health":
          console.log(args);
       case "/astro":
-
          var id = args[0];
          var x = (args[1]  - 3500)/3 - 40;
          var y = (args[3] + 110)/3 - 290;
          var z = (args[2] - 430)/3 + 180;
-
+         window.astros[id] = window.addAstronaut(x, y, z);
          break;
       default:
          console.error("Invalid OSC address", message);
