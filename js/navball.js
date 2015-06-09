@@ -47,18 +47,6 @@ $(function(){
     });
 
 
-//    function createScene( geometry, materials ) {
-//      console.log("LOADED!");
-//
-//      $("#helix").hide("slow" ,function(){ $("#helix").remove(); } );
-//
-//      var mesh = new THREE.Mesh( geometry, new THREE.MeshFaceMaterial( materials ));
-//      scene.add(mesh);
-//      scene.add(player);
-//      player.position = geometry.center();
-//      render();
-//    }
-
 
     renderer = new THREE.WebGLRenderer({alpha: true, antialias: false, precision: "lowp"});
     renderer.setClearColor( 0xffffff, 0);
@@ -79,22 +67,10 @@ $(function(){
   }
 
   function onWindowResize() {
-
-    windowHalfX = container.clientWidth / 2;
-    windowHalfY = 600 / 2;
-
-    camera.aspect = container.clientWidth / 600;
+    camera.aspect = 1;
     camera.updateProjectionMatrix();
-
-    //        renderer.setSize( window.innerWidth, window.innerHeight );
-
+    renderer.setSize($(container).width(), $(container).width());
   }
-
-  function onDocumentMouseMove( event ) {
-    mouseX = ( event.clientX - windowHalfX - container.offsetLeft ) / 2;
-    mouseY = ( event.clientY - windowHalfY - container.offsetTop ) / 2;
-  }
-
   //
 
   function animate() {

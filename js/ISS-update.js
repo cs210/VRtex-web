@@ -5,9 +5,6 @@ $(function(){
 
   var mouseX = 0, mouseY = 0;
 
-  var windowHalfX = window.innerWidth / 2;
-  var windowHalfY = window.innerHeight / 2;
-
   var cx = -2500, cy = 2400;
   init();
   animate();
@@ -69,30 +66,18 @@ $(function(){
 
     camera.position.x = cx;
     camera.position.y = cy;
-
-
     //
-
     window.addEventListener( 'resize', onWindowResize, false );
 
   }
 
   function onWindowResize() {
-
-    windowHalfX = container.clientWidth / 2;
-    windowHalfY = 600 / 2;
-
-    camera.aspect = container.clientWidth / 600;
+    camera.aspect = $(container).parent().width() / 550;
     camera.updateProjectionMatrix();
-
     //        renderer.setSize( window.innerWidth, window.innerHeight );
 
   }
 
-  function onDocumentMouseMove( event ) {
-    mouseX = ( event.clientX - windowHalfX - container.offsetLeft ) / 2;
-    mouseY = ( event.clientY - windowHalfY - container.offsetTop ) / 2;
-  }
 
   //
 
