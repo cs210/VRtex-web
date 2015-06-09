@@ -191,7 +191,7 @@ body,
   height: 100%;
 }
 body {
-  background: #000 url("https://s-media-cache-ak0.pinimg.com/originals/b3/b5/01/b3b5017c06a693ceb7a6c5c279a5795d.jpg") no-repeat;
+  background: #000 url("bgimg.jpg") no-repeat;
   background-size: cover;
   -webkit-transform-style: preserve-3d;
   -o-transform-style: preserve-3d;
@@ -210,7 +210,7 @@ body {
   width: 130%;
   height: 130%;
   z-index: -1;
-  background: #000 url("https://s-media-cache-ak0.pinimg.com/originals/b3/b5/01/b3b5017c06a693ceb7a6c5c279a5795d.jpg") no-repeat;
+  background: #000 url("bgimg.jpg") no-repeat;
   -webkit-transform: rotate3d(0, 1, 0, 25deg);
   -ms-transform: rotate3d(0, 1, 0, 25deg);
   transform: rotate3d(0, 1, 0, 25deg);
