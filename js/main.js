@@ -68,7 +68,8 @@ var updateDirection = function (yaw, pitch, roll) {
   window.sphere.rotation.z = -1 * yaw/180 * Math.PI;
   window.sphere.rotation.y = -1 * pitch/180 *Math.PI;
 
-  window.player.rotation = window.sphere.rotation;
+   var c = window.sphere.rotation;
+  window.player.rotation.set(c.x, c.y - Math.PI / 2, c.z);
 
 //  var scale = 125;
 //  var newX, newY;
