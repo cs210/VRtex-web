@@ -41,17 +41,17 @@ socket.on('message', function(message) {
          updatePosition.apply(this, args.slice(4, 7))
          break;
       case "/becomeShield":
-         $("#mode1 a")[0].removeClass("text-muted");
-         $("#mode1 a")[1].addClass("text-muted");
+         $("#shieldOn").removeClass("text-muted");
+         $("#beamOn").addClass("text-muted");
          break;
       case "/becomeBeam":
-         $("#mode1 a")[1].removeClass("text-muted");
-         $("#mode1 a")[0].addClass("text-muted");
+         $("#shieldOn").removeClass("text-muted");
+         $("#beamOn").addClass("text-muted");
          break;
       case "/becomeDrive":
          $("#thrust-meter").text("");
          break;
-      case "/becomePark":
+      case "/becomeParked":
          $("#thrust-meter").text("PARKED");
          break;
       case "/health":
