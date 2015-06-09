@@ -653,6 +653,12 @@ body {
   transform: rotate3d(0, 1, 0, 3deg);
 }
 
+#status-container-outer {
+   margin-top:11px;
+    -webkit-transform: rotate3d(0, 1, 0,-1deg) ;
+  -ms-transform: rotate3d(0, 1, 0, -1deg);
+  transform: rotate3d(0, 1, 0, -1deg);
+}
 #direction-container-outer {
     -webkit-transform: rotate3d(0, 1, 0, -5deg);
   -ms-transform: rotate3d(0, 1, 0, -5deg);
@@ -680,6 +686,22 @@ body {
    margin-top: 18px;
    margin-bottom: -47px;
    color: aqua;
+}
+
+
+#statuses {
+   font-size: 34px;
+}
+#statuses i{
+ display: inline-block;
+}
+#statuses span{
+   height: 59px;
+   padding-top: 8px;
+   padding-bottom: 3px;
+   display: block;
+   width: 100%;
+   border-bottom: 1px solid white;
 }
 
 .icons8-Astronaut-Filled {
