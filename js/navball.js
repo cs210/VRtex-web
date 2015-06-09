@@ -43,12 +43,11 @@ $(function(){
     });
 
 
-
     renderer = new THREE.WebGLRenderer({alpha: true, antialias: false, precision: "lowp"});
     renderer.setClearColor( 0xffffff, 0);
 
     renderer.setPixelRatio( window.devicePixelRatio );
-    renderer.setSize( container.clientWidth, 600 );
+    renderer.setSize($(container).width(), $(container).width());
     container.appendChild( renderer.domElement)
 
     camera.position.x = cx;
